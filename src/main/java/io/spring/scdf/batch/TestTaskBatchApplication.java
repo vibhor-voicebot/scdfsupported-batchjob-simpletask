@@ -51,9 +51,7 @@ public class TestTaskBatchApplication {
     public void deregisterBeans()    {
         ConfigurableApplicationContext configContext = (ConfigurableApplicationContext)context;
     	BeanDefinitionRegistry beanRegistry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
-    	//BeanDefinition newBeanDefinition = BeanDefinitionBuilder.rootBeanDefinition(com.practice.compensation.Employee.class).getBeanDefinition();
-    	//BeanDefinition oldBeanDefinition = beanRegistry.getBeanDefinition("MyJobLauncherCommandLineRunner");//this is needed if u want to revert your bean changes back to how it was
-    	//beanRegistry.registerBeanDefinition("employeeBean", newBeanDefinition);
+    	//BeanDefinition oldBeanDefinition = beanRegistry.getBeanDefinition("commandLineRunner");//this is needed if u want to revert your bean changes back to how it was
     	//beanRegistry.registerBeanDefinition("employeeBean", oldBeanDefinition);
     	SingletonBeanRegistry registry = configContext.getBeanFactory();
     	((AutowireCapableBeanFactory) registry).destroyBean("commandLineRunner"); 
