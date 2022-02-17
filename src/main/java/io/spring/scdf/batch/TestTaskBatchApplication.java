@@ -52,7 +52,7 @@ public class TestTaskBatchApplication {
         ConfigurableApplicationContext configContext = (ConfigurableApplicationContext)context;
     	BeanDefinitionRegistry beanRegistry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
     	//BeanDefinition oldBeanDefinition = beanRegistry.getBeanDefinition("commandLineRunner");//this is needed if u want to revert your bean changes back to how it was
-    	//beanRegistry.registerBeanDefinition("employeeBean", oldBeanDefinition);
+    	//beanRegistry.registerBeanDefinition("commandLineRunner", oldBeanDefinition);
     	SingletonBeanRegistry registry = configContext.getBeanFactory();
     	((AutowireCapableBeanFactory) registry).destroyBean("commandLineRunner"); 
         //return "Context root-path for springboot rest controller!";
