@@ -47,17 +47,27 @@ public class TestTaskBatchApplication {
 	@Autowired
 	private ApplicationContext context;
 	
-    @RequestMapping(path = "/deregisterBeans")
-    public void deregisterBeans()    {
-        ConfigurableApplicationContext configContext = (ConfigurableApplicationContext)context;
-    	BeanDefinitionRegistry beanRegistry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
-    	//BeanDefinition oldBeanDefinition = beanRegistry.getBeanDefinition("commandLineRunner");//this is needed if u want to revert your bean changes back to how it was
-    	//beanRegistry.registerBeanDefinition("commandLineRunner", oldBeanDefinition);
-    	SingletonBeanRegistry registry = configContext.getBeanFactory();
-    	((AutowireCapableBeanFactory) registry).destroyBean("commandLineRunner"); 
-        //return "Context root-path for springboot rest controller!";
-    	//return entity;
-  
-        
-    }
+	   @RequestMapping(path = "/deregisterBeans")
+	    public void deregisterBeans()    {
+	        ConfigurableApplicationContext configContext = (ConfigurableApplicationContext)context;
+	    	BeanDefinitionRegistry beanRegistry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
+	    	//beanRegistry.registerBeanDefinition("commandLineRunner", oldBeanDefinition);
+	    	/////////////SingletonBeanRegistry registry = configContext.getBeanFactory();
+	    	////////////((AutowireCapableBeanFactory) registry).destroyBean("commandLineRunner");
+	    	((BeanDefinitionRegistry) beanRegistry).removeBeanDefinition("commandLineRunner");
+	    	System.out.println("destroyed the specific bean##################");
+	    	String[] beanNames = context.getBeanDefinitionNames();
+			
+			for (String beanName : beanNames) {
+				System.out.println(beanName);
+			}
+
+	        //return "Context root-path for springboot rest controller!";
+	    	//return entity;
+	  
+	        
+	    }
+	
+
+
 }
