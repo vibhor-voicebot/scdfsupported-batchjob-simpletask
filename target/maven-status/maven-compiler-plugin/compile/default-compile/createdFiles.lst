@@ -1,0 +1,5 @@
+io/spring/scdf/batch/TestTaskBatchApplication.class
+io/spring/scdf/batch/job/JobConfiguration.class
+io/spring/scdf/batch/support/ExpandedJobParametersConverter.class
+io/spring/scdf/batch/job/HelloSimpleBatchTasklet.class
+io/spring/scdf/batch/support/MyJobLauncherCommandLineRunner.class
